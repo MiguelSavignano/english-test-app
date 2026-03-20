@@ -1,5 +1,6 @@
 {
   "questionsCount": 10,
+  "level": "C1",
   "shuffleQuestions": true,
   "shuffleOptions": false
 }

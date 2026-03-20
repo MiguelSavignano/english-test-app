@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createMessage } from "@/lib/claude";
+import { createMessage } from "@/lib/ollama";
 
 export async function POST(req: NextRequest) {
   const { message } = await req.json();
