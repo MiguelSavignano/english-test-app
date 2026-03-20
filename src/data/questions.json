@@ -1,0 +1,237 @@
+[
+  {
+    "id": 1,
+    "type": "multiple-choice",
+    "question": "She _____ to school yesterday.",
+    "options": ["go", "goes", "went", "gone"],
+    "answer": "went",
+    "explanation": "'Went' is the irregular past simple form of 'go'. We use the past simple for completed actions in the past. 'Go' and 'goes' are present tense forms; 'gone' is the past participle used with 'have'."
+  },
+  {
+    "id": 2,
+    "type": "multiple-choice",
+    "question": "They _____ football last Sunday.",
+    "options": ["play", "played", "plays", "playing"],
+    "answer": "played",
+    "explanation": "'Played' is the regular past simple form of 'play' (play + -ed). We add -ed to regular verbs to form the past simple. 'Last Sunday' is a past time expression that signals we need the past simple."
+  },
+  {
+    "id": 3,
+    "type": "multiple-choice",
+    "question": "I _____ a great movie two days ago.",
+    "options": ["see", "seed", "saw", "seen"],
+    "answer": "saw",
+    "explanation": "'Saw' is the irregular past simple of 'see'. 'Two days ago' confirms we need a past simple tense. 'Seen' is the past participle and cannot be used without an auxiliary verb."
+  },
+  {
+    "id": 4,
+    "type": "multiple-choice",
+    "question": "He _____ in London when he was a child.",
+    "options": ["live", "lives", "lived", "living"],
+    "answer": "lived",
+    "explanation": "'Lived' is the regular past simple of 'live'. The phrase 'when he was a child' sets the action in the past. We add -d to verbs ending in -e (live → lived)."
+  },
+  {
+    "id": 5,
+    "type": "multiple-choice",
+    "question": "_____ you finish your homework last night?",
+    "options": ["Do", "Did", "Does", "Done"],
+    "answer": "Did",
+    "explanation": "In past simple questions, we use 'Did' as the auxiliary verb before the subject, followed by the base form of the main verb (finish). 'Do/Does' are present tense auxiliaries."
+  },
+  {
+    "id": 6,
+    "type": "multiple-choice",
+    "question": "We _____ at a hotel during our holiday.",
+    "options": ["stay", "stayed", "staid", "staying"],
+    "answer": "stayed",
+    "explanation": "'Stayed' is the regular past simple of 'stay'. The context 'during our holiday' refers to a past completed period. Note the spelling: stay + -ed (no change needed since 'y' is preceded by a vowel)."
+  },
+  {
+    "id": 7,
+    "type": "multiple-choice",
+    "question": "She didn't _____ the answer to the question.",
+    "options": ["knew", "knows", "know", "known"],
+    "answer": "know",
+    "explanation": "After 'didn't' (did + not), we always use the base form of the verb (know), NOT the past form. Using 'knew' here is a very common mistake. The auxiliary 'did' already carries the past tense meaning."
+  },
+  {
+    "id": 8,
+    "type": "multiple-choice",
+    "question": "My parents _____ married in 1995.",
+    "options": ["got", "get", "gets", "gotten"],
+    "answer": "got",
+    "explanation": "'Got' is the irregular past simple of 'get'. 'Get married' is a fixed phrase. 'In 1995' is a specific past time reference requiring the past simple."
+  },
+  {
+    "id": 9,
+    "type": "multiple-choice",
+    "question": "The children _____ very excited about the trip.",
+    "options": ["was", "were", "are", "been"],
+    "answer": "were",
+    "explanation": "'Were' is the past simple of 'be' used with plural subjects (the children = they). 'Was' is used with I/he/she/it. 'Are' is present tense; 'been' is the past participle."
+  },
+  {
+    "id": 10,
+    "type": "multiple-choice",
+    "question": "He _____ his keys on the kitchen table.",
+    "options": ["leave", "left", "leaved", "leaves"],
+    "answer": "left",
+    "explanation": "'Left' is the irregular past simple of 'leave'. Note that 'leaved' does not exist — 'leave' is irregular and does not take -ed."
+  },
+  {
+    "id": 11,
+    "type": "error-correction",
+    "question": "I didn't went to the party last weekend.",
+    "options": [
+      "I didn't go to the party last weekend.",
+      "I didn't gone to the party last weekend.",
+      "I didn't goes to the party last weekend.",
+      "I not went to the party last weekend."
+    ],
+    "answer": "I didn't go to the party last weekend.",
+    "explanation": "After 'didn't', we must use the base form of the verb (go), not the past simple (went). The negative is formed with 'did + not + base verb'. 'I not went' is also wrong — we need the auxiliary 'did' for negatives."
+  },
+  {
+    "id": 12,
+    "type": "error-correction",
+    "question": "Did she went to the supermarket this morning?",
+    "options": [
+      "Did she go to the supermarket this morning?",
+      "Did she goes to the supermarket this morning?",
+      "Did she gone to the supermarket this morning?",
+      "Does she went to the supermarket this morning?"
+    ],
+    "answer": "Did she go to the supermarket this morning?",
+    "explanation": "In past simple questions, the structure is: Did + subject + base verb. After 'Did', always use the base form (go), not the past form (went). 'Does' is the present simple auxiliary."
+  },
+  {
+    "id": 13,
+    "type": "error-correction",
+    "question": "We buyed a new car last month.",
+    "options": [
+      "We bought a new car last month.",
+      "We buied a new car last month.",
+      "We buy a new car last month.",
+      "We have buyed a new car last month."
+    ],
+    "answer": "We bought a new car last month.",
+    "explanation": "'Buy' is an irregular verb — its past simple form is 'bought', not 'buyed'. There is no rule that applies here; irregular past forms must be memorized."
+  },
+  {
+    "id": 14,
+    "type": "error-correction",
+    "question": "She was very tire after the long run.",
+    "options": [
+      "She was very tired after the long run.",
+      "She were very tired after the long run.",
+      "She was very tiring after the long run.",
+      "She be very tired after the long run."
+    ],
+    "answer": "She was very tired after the long run.",
+    "explanation": "'Tired' (adjective, past participle used as adjective) is correct here. 'Tire' is the verb form. 'Were' would be used for plural subjects. 'Tiring' means 'making someone tired' (active sense), which changes the meaning."
+  },
+  {
+    "id": 15,
+    "type": "error-correction",
+    "question": "They didn't arrived on time for the meeting.",
+    "options": [
+      "They didn't arrive on time for the meeting.",
+      "They didn't arriving on time for the meeting.",
+      "They not arrived on time for the meeting.",
+      "They didn't arrives on time for the meeting."
+    ],
+    "answer": "They didn't arrive on time for the meeting.",
+    "explanation": "After 'didn't', use the base infinitive form of the verb (arrive), not the past simple (arrived). The auxiliary 'did' already marks the past tense. 'They not arrived' is wrong because negatives need the auxiliary 'did'."
+  },
+  {
+    "id": 16,
+    "type": "fill-in-the-blank",
+    "question": "Tom _____ (write) a long letter to his friend last week.",
+    "options": ["write", "wrote", "writed", "written"],
+    "answer": "wrote",
+    "explanation": "'Wrote' is the irregular past simple of 'write'. 'Last week' is a past time signal. 'Written' is the past participle; 'writed' does not exist — 'write' is an irregular verb."
+  },
+  {
+    "id": 17,
+    "type": "fill-in-the-blank",
+    "question": "The concert _____ (start) at 8 o'clock last night.",
+    "options": ["start", "started", "starts", "starting"],
+    "answer": "started",
+    "explanation": "'Started' is the regular past simple of 'start' (start + -ed). 'Last night' is a completed past time, confirming we need the past simple."
+  },
+  {
+    "id": 18,
+    "type": "fill-in-the-blank",
+    "question": "I _____ (not / sleep) well because of the noise.",
+    "options": ["didn't sleep", "didn't slept", "not slept", "didn't sleeping"],
+    "answer": "didn't sleep",
+    "explanation": "Negative past simple: 'didn't' + base form of verb. 'Didn't slept' is wrong because after 'didn't' we need the base form 'sleep'. 'Not slept' is missing the auxiliary 'did'."
+  },
+  {
+    "id": 19,
+    "type": "fill-in-the-blank",
+    "question": "Where _____ (you / go) on holiday last summer?",
+    "options": ["did you go", "did you went", "you went", "you did go"],
+    "answer": "did you go",
+    "explanation": "Past simple questions use: Question word + did + subject + base verb. 'Did you went' is wrong — after 'did', use the base form 'go'. In questions, subject and auxiliary are inverted."
+  },
+  {
+    "id": 20,
+    "type": "fill-in-the-blank",
+    "question": "My brother _____ (break) his leg in a skiing accident.",
+    "options": ["broken", "breaked", "broke", "breaks"],
+    "answer": "broke",
+    "explanation": "'Broke' is the irregular past simple of 'break'. 'Broken' is the past participle. 'Breaked' does not exist — 'break' is irregular. The sentence describes a completed past event."
+  },
+  {
+    "id": 21,
+    "type": "multiple-choice",
+    "question": "Which sentence uses the past simple CORRECTLY?",
+    "options": [
+      "She have worked here for ten years.",
+      "She worked here ten years ago.",
+      "She is worked here ten years ago.",
+      "She working here ten years ago."
+    ],
+    "answer": "She worked here ten years ago.",
+    "explanation": "'Ten years ago' is a specific past time reference that requires the past simple. 'Have worked' is present perfect. 'Is worked' is incorrect passive construction. 'Working' needs an auxiliary verb."
+  },
+  {
+    "id": 22,
+    "type": "multiple-choice",
+    "question": "Peter _____ in the army for three years and then he returned home.",
+    "options": ["serves", "has served", "served", "serving"],
+    "answer": "served",
+    "explanation": "'Served' is correct because this is a completed sequence of past events ('served... then returned'). The past simple is used for actions completed at a specific time in the past. 'Has served' (present perfect) would be used without 'then he returned'."
+  },
+  {
+    "id": 23,
+    "type": "multiple-choice",
+    "question": "What time _____ this morning?",
+    "options": ["you woke up", "did you wake up", "you did wake up", "did you woke up"],
+    "answer": "did you wake up",
+    "explanation": "Past simple question: Did + subject + base verb. 'Did you wake up' is the correct inversion. 'Did you woke up' is wrong because 'woke' is the past form, not the base form. Subject-verb inversion is mandatory in questions."
+  },
+  {
+    "id": 24,
+    "type": "multiple-choice",
+    "question": "I _____ very nervous before my driving test.",
+    "options": ["am", "were", "was", "been"],
+    "answer": "was",
+    "explanation": "'Was' is the past simple of 'be' used with the first person singular (I). 'Were' is used with you/we/they. 'Am' is present tense. 'Been' is the past participle requiring an auxiliary (have been)."
+  },
+  {
+    "id": 25,
+    "type": "error-correction",
+    "question": "When did she arrived at the airport?",
+    "options": [
+      "When did she arrive at the airport?",
+      "When she arrived at the airport?",
+      "When did she arrives at the airport?",
+      "When was she arrive at the airport?"
+    ],
+    "answer": "When did she arrive at the airport?",
+    "explanation": "In past simple questions, after 'did' we always use the base form of the verb (arrive), not the past simple (arrived). The structure is: Wh-word + did + subject + base verb."
+  }
+]
