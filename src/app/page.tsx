@@ -2,21 +2,30 @@
 
 import { useState } from "react";
 import questionsData from "@/data/questions.json";
+import config from "@/data/config.json";
 import QuizStart from "@/components/QuizStart";
 import QuizQuestion from "@/components/QuizQuestion";
 import QuizResults from "@/components/QuizResults";
 
 type Stage = "start" | "quiz" | "results";
 
+function prepareQuestions() {
+  const pool = config.shuffleQuestions
+    ? [...questionsData].sort(() => Math.random() - 0.5)
+    : [...questionsData];
+  const count = Math.min(config.questionsCount, pool.length);
+  return pool.slice(0, count);
+}
+
 export default function Home() {
   const [stage, setStage] = useState<Stage>("start");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [answered, setAnswered] = useState(false);
-
-  const questions = questionsData;
+  const [questions, setQuestions] = useState(prepareQuestions);
 
   function handleStart() {
+    setQuestions(prepareQuestions());
     setStage("quiz");
     setCurrentIndex(0);
     setScore(0);
