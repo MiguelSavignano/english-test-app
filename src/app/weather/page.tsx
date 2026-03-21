@@ -14,10 +14,17 @@ interface WeatherData {
 }
 
 interface WeatherResponse {
+  city: string;
   weather: WeatherData;
   funnyMessage: string;
   error?: string;
 }
+
+const CITIES = [
+  { key: "alcala", label: "Alcalá de Henares" },
+  { key: "oviedo", label: "Oviedo" },
+  { key: "getafe", label: "Getafe" },
+];
 
 const WEATHER_EMOJI: Record<number, string> = {
   0: "☀️", 1: "🌤️", 2: "⛅", 3: "☁️",
@@ -30,46 +37,63 @@ const WEATHER_EMOJI: Record<number, string> = {
 };
 
 export default function WeatherPage() {
+  const [selectedCity, setSelectedCity] = useState("alcala");
   const [data, setData] = useState<WeatherResponse | null>(null);
   const [loading, setLoading] = useState(true);
 
-  async function fetchWeather() {
+  async function fetchWeather(city: string) {
     setLoading(true);
     setData(null);
     try {
-      const res = await fetch("/api/weather");
+      const res = await fetch(`/api/weather?city=${city}`);
       const json = await res.json();
       setData(json);
     } catch {
-      setData({ weather: {} as WeatherData, funnyMessage: "", error: "Failed to load weather." });
+      setData({ city: "", weather: {} as WeatherData, funnyMessage: "", error: "Failed to load weather." });
     } finally {
       setLoading(false);
     }
   }
 
   useEffect(() => {
-    fetchWeather();
-  }, []);
+    fetchWeather(selectedCity);
+  }, [selectedCity]);
 
   const emoji = data?.weather?.weatherCode != null
     ? (WEATHER_EMOJI[data.weather.weatherCode] ?? "🌡️")
     : "🌡️";
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-50 to-sky-100 dark:from-slate-900 dark:to-slate-800 flex flex-col items-center justify-center p-6">
+    <main className="min-h-screen bg-linear-to-b from-blue-50 to-sky-100 dark:from-slate-900 dark:to-slate-800 flex flex-col items-center justify-center p-6">
       <div className="w-full max-w-lg">
         <h1 className="text-3xl font-bold text-center text-slate-800 dark:text-white mb-1">
-          Weather in Alcalá de Henares
+          Spanish Weather Report
         </h1>
-        <p className="text-center text-slate-500 dark:text-slate-400 text-sm mb-8">
-          Birthplace of Cervantes — land of windmills and questionable weather
+        <p className="text-center text-slate-500 dark:text-slate-400 text-sm mb-6">
+          Powered by AI drama and questionable meteorology
         </p>
+
+        {/* City selector */}
+        <div className="mb-6">
+          <select
+            value={selectedCity}
+            onChange={(e) => setSelectedCity(e.target.value)}
+            disabled={loading}
+            className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white rounded-2xl px-4 py-3 text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 cursor-pointer"
+          >
+            {CITIES.map((c) => (
+              <option key={c.key} value={c.key}>
+                {c.label}
+              </option>
+            ))}
+          </select>
+        </div>
 
         {loading && (
           <div className="flex flex-col items-center gap-4 py-16">
             <div className="w-12 h-12 border-4 border-blue-400 border-t-transparent rounded-full animate-spin" />
             <p className="text-slate-500 dark:text-slate-400 text-sm">
-              Consulting the AI oracle about this city's weather drama...
+              Consulting the AI oracle about today&apos;s weather drama...
             </p>
           </div>
         )}
@@ -116,10 +140,14 @@ export default function WeatherPage() {
             {/* Last updated + refresh */}
             <div className="flex items-center justify-between text-xs text-slate-400 dark:text-slate-500 px-1">
               <span>
-                Updated: {new Date(data.weather.time).toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" })}
+                Updated:{" "}
+                {new Date(data.weather.time).toLocaleTimeString("es-ES", {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
               </span>
               <button
-                onClick={fetchWeather}
+                onClick={() => fetchWeather(selectedCity)}
                 className="text-blue-500 hover:text-blue-600 dark:text-blue-400 font-medium hover:underline"
               >
                 Refresh ↻
