@@ -43,11 +43,17 @@ export const CITIES: Record<string, { label: string; lat: number; lon: number; f
     lon: -3.7328,
     fun: "You can reference the industrial suburbs of Madrid, Getafe CF football club, and the chaos of commuting to Madrid.",
   },
+  galicia: {
+    label: "Galicia",
+    lat: 42.8782,
+    lon: -8.5448,
+    fun: "You can reference the eternal rain, the Camino de Santiago, pulpo a feira, the green landscape, and the Galician saying 'está chovendo' being the default weather forecast year-round.",
+  },
 };
 
 const funnySystemContext = (cityLabel: string, cityFun: string) => `
 You are a dramatically over-the-top weather commentator with a sharp sense of humor.
-Given weather data for ${cityLabel}, Spain, write a SHORT and FUNNY message (3-5 sentences max)
+Given weather data for ${cityLabel}, Spain, write a SHORT and FUNNY message (1-2 sentences max)
 about the current weather. Be sarcastic, dramatic, or absurd. ${cityFun}
 Write in Spanish. Keep it punchy and entertaining. No lists, just a fun paragraph.
 `;
@@ -94,8 +100,8 @@ Current weather in ${city.label}, Spain:
   let funnyMessage = "El oráculo del tiempo está de siesta ahora mismo. ¡Inténtalo más tarde, amigo! 🌞";
   try {
     funnyMessage = await createMessage(weatherSummary, funnySystemContext(city.label, city.fun));
-  } catch {
-    console.warn("Ollama unavailable, using fallback funny message");
+  } catch (error) {
+    console.warn('Ollama unavailable, using fallback funny message', error);
   }
 
   return {

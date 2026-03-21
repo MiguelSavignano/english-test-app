@@ -1,5 +1,3 @@
-const { OLLAMA_API_URL, OLLAMA_MODEL } = process.env;
-
 const systemContextEnglish = `
 You are an english teacher.
 Answer in JSON format with the following structure:
@@ -17,7 +15,10 @@ export async function createMessage(
   message: string,
   systemContext: string = systemContextEnglish,
 ): Promise<string> {
-  console.log('Fetching from Ollama...');
+  const OLLAMA_API_URL = process.env.OLLAMA_API_URL ?? 'http://localhost:11434';
+  const OLLAMA_MODEL = process.env.OLLAMA_MODEL ?? 'llama3.2:3b';
+
+  console.log(`Fetching from Ollama... ${OLLAMA_API_URL}/api/chat`);
 
   const response = await fetch(`${OLLAMA_API_URL}/api/chat`, {
     method: 'POST',
