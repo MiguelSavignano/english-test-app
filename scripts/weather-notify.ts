@@ -1,21 +1,33 @@
 /**
- * Standalone scheduler: sends a weather + AI funny message to WhatsApp every 5 minutes.
+ * Standalone scheduler: sends a weather + AI funny message to WhatsApp on a cron schedule.
  * Requires an existing WhatsApp session — connect first via /wasap in the app.
  *
  * Usage:  npm run notify
+ *
+ * Schedule is read from WASAP_CRON in .env. Multiple expressions separated by comma.
+ * Examples:
+ *   WASAP_CRON="30 9 * * *"           → every day at 09:30
+ *   WASAP_CRON="30 9 * * *,0 18 * * *" → every day at 09:30 and 18:00
  */
 
 import * as dotenv from "dotenv";
 dotenv.config();
 
-import { existsSync } from "fs";
+import { existsSync, rmSync } from "fs";
 import { Client, LocalAuth } from "whatsapp-web.js";
-import { fetchFunnyWeather } from "@/lib/fetchFunnyWeather";
+import cron from "node-cron";
 
 const SESSION_PATH = ".wasap-session";
-const CITY = process.env.WASAP_CITY ?? "Madrid";
+// Puppeteer leaves a lock file when the process exits uncleanly (e.g. Ctrl+C, crash).
+// Remove it so we can start a fresh browser instance.
+const LOCK_FILE = `${SESSION_PATH}/session/SingletonLock`;
+if (existsSync(LOCK_FILE)) {
+  rmSync(LOCK_FILE);
+  console.log("[notify] Removed stale SingletonLock");
+}
+const CITY = process.env.WASAP_CITY ?? "alcala";
 const PHONE = process.env.WASAP_PHONE;
-const INTERVAL_MS = 5 * 60 * 1000;
+const CRON_EXPRESSIONS = (process.env.WASAP_CRON ?? "30 9 * * *").split(",").map((s) => s.trim());
 
 const WEATHER_EMOJI: Record<number, string> = {
   0: "☀️", 1: "🌤️", 2: "⛅", 3: "☁️",
@@ -40,11 +52,17 @@ if (!PHONE) {
   process.exit(1);
 }
 
+const invalidExpressions = CRON_EXPRESSIONS.filter((expr) => !cron.validate(expr));
+if (invalidExpressions.length > 0) {
+  console.error(`[notify] Invalid cron expression(s): ${invalidExpressions.join(", ")}`);
+  process.exit(1);
+}
+
 // --- Core ---
 
-console.log(process.env.OLLAMA_API_URL);
-
 async function sendWeatherUpdate(client: Client) {
+  // Dynamic import ensures ollama.ts reads process.env AFTER dotenv.config() has run
+  const { fetchFunnyWeather } = await import("@/lib/fetchFunnyWeather");
   console.log(`[notify] Fetching weather for ${CITY}...`);
   const data = await fetchFunnyWeather(CITY);
   const emoji = WEATHER_EMOJI[data.weather.weatherCode] ?? "🌡️";
@@ -69,12 +87,14 @@ const client = new Client({
   },
 });
 
-client.on("ready", async () => {
-  console.log(`[notify] Client ready. Sending every ${INTERVAL_MS / 60000} min to ${PHONE}`);
+client.on("ready", () => {
+  console.log(`[notify] Client ready. Scheduling for: ${CRON_EXPRESSIONS.join(" | ")}`);
 
-  // Fire immediately, then on interval
-  await sendWeatherUpdate(client).catch(console.error);
-  setInterval(() => sendWeatherUpdate(client).catch(console.error), INTERVAL_MS);
+  for (const expr of CRON_EXPRESSIONS) {
+    cron.schedule(expr, () => {
+      sendWeatherUpdate(client).catch(console.error);
+    });
+  }
 });
 
 client.on("auth_failure", () => {
