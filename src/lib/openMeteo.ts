@@ -1,3 +1,5 @@
+import citiesData from "@/data/cities.json";
+
 export interface CityConfig {
   label: string;
   lat: number;
@@ -5,38 +7,7 @@ export interface CityConfig {
   fun: string;
 }
 
-export const CITIES: Record<string, CityConfig> = {
-  alcala: {
-    label: "Alcalá de Henares",
-    lat: 40.4818,
-    lon: -3.3607,
-    fun: "You can reference Don Quixote or Cervantes (the city is his birthplace) and the rich university history.",
-  },
-  oviedo: {
-    label: "Oviedo",
-    lat: 43.3614,
-    lon: -5.8593,
-    fun: "You can reference the constant rain, sidra (cider), fabada asturiana, and the proud Asturian culture.",
-  },
-  getafe: {
-    label: "Getafe",
-    lat: 40.3058,
-    lon: -3.7328,
-    fun: "You can reference the industrial suburbs of Madrid, Getafe CF football club, and the chaos of commuting to Madrid.",
-  },
-  sanse: {
-    label: "San Sebastian de los Reyes",
-    lat: 40.5483,
-    lon: -3.6272,
-    fun: "You can reference the famous San Isidro bullfighting fair, the outlet shopping malls, and being Madrid's northern neighbour that everyone confuses with Alcobendas.",
-  },
-  galicia: {
-    label: "Galicia",
-    lat: 42.8782,
-    lon: -8.5448,
-    fun: "You can reference the eternal rain, the Camino de Santiago, pulpo a feira, the green landscape, and the Galician saying 'esta chovendo' being the default weather forecast year-round.",
-  },
-};
+export const CITIES: Record<string, CityConfig> = citiesData as Record<string, CityConfig>;
 
 export const WMO_CODES: Record<number, string> = {
   0: "clear sky",

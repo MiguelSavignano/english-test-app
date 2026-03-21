@@ -1,0 +1,140 @@
+{
+  "madrid": {
+    "label": "Madrid",
+    "lat": 40.4168,
+    "lon": -3.7038,
+    "fun": "You can reference the eternal traffic on the M-30, the Bernabeu vs Atletico rivalry, the unbearable summer heat, and madrileños leaving the city every August."
+  },
+  "barcelona": {
+    "label": "Barcelona",
+    "lat": 41.3851,
+    "lon": 2.1734,
+    "fun": "You can reference the eternal debate between Barca and Espanyol, tourist crowds on Las Ramblas, the sea breeze, and locals complaining about gentrification."
+  },
+  "valencia": {
+    "label": "Valencia",
+    "lat": 39.4699,
+    "lon": -0.3763,
+    "fun": "You can reference the paella wars (never put chorizo in it!), the Fallas festival smoke, the Turia gardens, and the Mediterranean sunshine."
+  },
+  "sevilla": {
+    "label": "Sevilla",
+    "lat": 37.3891,
+    "lon": -5.9845,
+    "fun": "You can reference the legendary Sevilla heat in summer (sometimes over 45C), Semana Santa processions, flamenco, and the eternal Betis vs Sevilla derby."
+  },
+  "zaragoza": {
+    "label": "Zaragoza",
+    "lat": 41.6488,
+    "lon": -0.8891,
+    "fun": "You can reference the famous Cierzo wind that blows everything away, the Pilar basilica, and being the city halfway between Madrid and Barcelona that everyone just passes through."
+  },
+  "malaga": {
+    "label": "Malaga",
+    "lat": 36.7213,
+    "lon": -4.4214,
+    "fun": "You can reference the 320 days of sunshine per year, the tourist invasion of the Costa del Sol, Picasso's birthplace, and pescaito frito on the beach."
+  },
+  "bilbao": {
+    "label": "Bilbao",
+    "lat": 43.263,
+    "lon": -2.935,
+    "fun": "You can reference the constant drizzle called sirimiri, the Guggenheim Museum, Athletic Club's pride, pintxos culture, and the industrial to hipster transformation of the city."
+  },
+  "alicante": {
+    "label": "Alicante",
+    "lat": 38.3452,
+    "lon": -0.481,
+    "fun": "You can reference the Hogueras de San Juan bonfires, the packed beaches in summer, the British expat invasion, and the best turron in Spain."
+  },
+  "cordoba": {
+    "label": "Cordoba",
+    "lat": 37.8882,
+    "lon": -4.7794,
+    "fun": "You can reference the legendary summer heat (often the hottest city in Europe), the Mezquita, the patios festival, and the fact that even locals hide indoors at midday."
+  },
+  "valladolid": {
+    "label": "Valladolid",
+    "lat": 41.6523,
+    "lon": -4.7245,
+    "fun": "You can reference the biting Castilian cold in winter, the rivalry with Palencia, the famous wine from Ribera del Duero, and being the lechazo roast capital of Spain."
+  },
+  "granada": {
+    "label": "Granada",
+    "lat": 37.1773,
+    "lon": -3.5986,
+    "fun": "You can reference the Alhambra views, the free tapas culture (best in Spain!), the Sierra Nevada snow visible from the city, and the eternal student party scene."
+  },
+  "palma": {
+    "label": "Palma de Mallorca",
+    "lat": 39.5696,
+    "lon": 2.6502,
+    "fun": "You can reference the German tourist takeover, the overcrowded beaches in summer, the stunning cathedral by the sea, and the locals escaping to the interior to avoid tourists."
+  },
+  "murcia": {
+    "label": "Murcia",
+    "lat": 37.9922,
+    "lon": -1.1307,
+    "fun": "You can reference the extreme heat in the Segura valley, the huerta vegetables that feed all of Spain, and Murcia's proud claim of having the best tapas bars that nobody outside Murcia knows about."
+  },
+  "santander": {
+    "label": "Santander",
+    "lat": 43.4623,
+    "lon": -3.8099,
+    "fun": "You can reference the constant Atlantic rain, the royal summer residence, the Sardinero beach on the rare sunny days, and the sobaos pastries that cure all weather sadness."
+  },
+  "pamplona": {
+    "label": "Pamplona",
+    "lat": 42.8125,
+    "lon": -1.6458,
+    "fun": "You can reference the San Fermin running of the bulls, the encierro chaos every July, the Navarran wind, and the fact that the city is perfectly calm 51 weeks of the year."
+  },
+  "salamanca": {
+    "label": "Salamanca",
+    "lat": 40.9701,
+    "lon": -5.6635,
+    "fun": "You can reference the golden stone architecture, the oldest university in Spain, the freezing Castilian winters, and the student nightlife that never seems to end."
+  },
+  "donostia": {
+    "label": "San Sebastian",
+    "lat": 43.3183,
+    "lon": -1.9812,
+    "fun": "You can reference the most Michelin stars per capita in the world, the eternal Atlantic drizzle, the La Concha beach on sunny days, and the fierce pride of being called Donostia, not San Sebastian."
+  },
+  "logrono": {
+    "label": "Logrono",
+    "lat": 42.4627,
+    "lon": -2.4449,
+    "fun": "You can reference the Rioja wine culture that flows through every street, the famous Calle Laurel pintxos crawl, and locals who measure time in harvests rather than seasons."
+  },
+  "oviedo": {
+    "label": "Oviedo",
+    "lat": 43.3614,
+    "lon": -5.8593,
+    "fun": "You can reference the constant rain, sidra (cider), fabada asturiana, and the proud Asturian culture."
+  },
+  "alcala": {
+    "label": "Alcala de Henares",
+    "lat": 40.4818,
+    "lon": -3.3607,
+    "fun": "You can reference Don Quixote or Cervantes (the city is his birthplace) and the rich university history."
+  },
+  "getafe": {
+    "label": "Getafe",
+    "lat": 40.3058,
+    "lon": -3.7328,
+    "fun": "You can reference the industrial suburbs of Madrid, Getafe CF football club, and the chaos of commuting to Madrid."
+  },
+  "sanse": {
+    "label": "San Sebastian de los Reyes",
+    "lat": 40.5483,
+    "lon": -3.6272,
+    "fun": "You can reference the famous San Isidro bullfighting fair, the outlet shopping malls, and being Madrid's northern neighbour that everyone confuses with Alcobendas."
+  },
+  "galicia": {
+    "label": "Galicia",
+    "lat": 42.8782,
+    "lon": -8.5448,
+    "fun": "You can reference the eternal rain, the Camino de Santiago, pulpo a feira, the green landscape, and the Galician saying 'esta chovendo' being the default weather forecast year-round."
+  }
+}
