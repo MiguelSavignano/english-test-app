@@ -13,10 +13,11 @@ Answer in JSON format with the following structure:
   }]
 `;
 
-
 export async function createMessage(
   message: string,
 ): Promise<string> {
+  console.log("Fetching from Ollama...");
+
   const response = await fetch(`${OLLAMA_API_URL}/api/chat`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -34,6 +35,7 @@ export async function createMessage(
   });
 
   if (!response.ok) {
+    console.error(`Ollama failed ${response.statusText}`, response.text ? await response.text() : '');
     throw new Error(`Ollama request failed: ${response.statusText}`);
   }
 
