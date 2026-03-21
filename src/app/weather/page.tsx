@@ -20,6 +20,8 @@ interface WeatherResponse {
   error?: string;
 }
 
+type SendStatus = "idle" | "sending" | "sent" | "error";
+
 const CITIES = [
   { key: "alcala", label: "Alcalá de Henares" },
   { key: "oviedo", label: "Oviedo" },
@@ -40,6 +42,7 @@ export default function WeatherPage() {
   const [selectedCity, setSelectedCity] = useState("alcala");
   const [data, setData] = useState<WeatherResponse | null>(null);
   const [loading, setLoading] = useState(true);
+  const [sendStatus, setSendStatus] = useState<SendStatus>("idle");
 
   async function fetchWeather(city: string) {
     setLoading(true);
@@ -58,6 +61,29 @@ export default function WeatherPage() {
   useEffect(() => {
     fetchWeather(selectedCity);
   }, [selectedCity]);
+
+  async function sendToWasap() {
+    if (!data?.weather) return;
+    setSendStatus("sending");
+    const emoji = WEATHER_EMOJI[data.weather.weatherCode] ?? "🌡️";
+    const text =
+      `${emoji} *Weather in ${data.city}*\n` +
+      `🌡️ ${Math.round(data.weather.temperature)}°C (feels like ${Math.round(data.weather.feelsLike)}°C)\n` +
+      `💧 Humidity: ${data.weather.humidity}%  💨 Wind: ${Math.round(data.weather.windSpeed)} km/h\n\n` +
+      `🤖 ${data.funnyMessage}`;
+    try {
+      const res = await fetch("/api/wasap", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text }),
+      });
+      const json = await res.json();
+      setSendStatus(json.ok ? "sent" : "error");
+    } catch {
+      setSendStatus("error");
+    }
+    setTimeout(() => setSendStatus("idle"), 3000);
+  }
 
   const emoji = data?.weather?.weatherCode != null
     ? (WEATHER_EMOJI[data.weather.weatherCode] ?? "🌡️")
@@ -136,6 +162,24 @@ export default function WeatherPage() {
                 {data.funnyMessage}
               </p>
             </div>
+
+            {/* Send to WhatsApp */}
+            <button
+              onClick={sendToWasap}
+              disabled={sendStatus === "sending"}
+              className={`w-full font-semibold rounded-2xl px-4 py-3 text-sm transition-colors ${
+                sendStatus === "sent"
+                  ? "bg-green-500 text-white"
+                  : sendStatus === "error"
+                  ? "bg-red-500 text-white"
+                  : "bg-green-500 hover:bg-green-600 disabled:opacity-50 text-white"
+              }`}
+            >
+              {sendStatus === "sending" && "Sending..."}
+              {sendStatus === "sent" && "✓ Sent to WhatsApp!"}
+              {sendStatus === "error" && "✗ Failed — is the bot connected?"}
+              {sendStatus === "idle" && "📲 Send to WhatsApp"}
+            </button>
 
             {/* Last updated + refresh */}
             <div className="flex items-center justify-between text-xs text-slate-400 dark:text-slate-500 px-1">
