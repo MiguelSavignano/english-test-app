@@ -24,6 +24,12 @@ export const CITIES: Record<string, CityConfig> = {
     lon: -3.7328,
     fun: "You can reference the industrial suburbs of Madrid, Getafe CF football club, and the chaos of commuting to Madrid.",
   },
+  sanse: {
+    label: "San Sebastian de los Reyes",
+    lat: 40.5483,
+    lon: -3.6272,
+    fun: "You can reference the famous San Isidro bullfighting fair, the outlet shopping malls, and being Madrid's northern neighbour that everyone confuses with Alcobendas.",
+  },
   galicia: {
     label: "Galicia",
     lat: 42.8782,
@@ -70,6 +76,21 @@ export interface WeatherData {
   city: CityConfig;
   current: CurrentWeather;
   description: string;
+}
+
+export interface WeatherResult {
+  city: string;
+  weather: {
+    description: string;
+    temperature: number;
+    feelsLike: number;
+    humidity: number;
+    windSpeed: number;
+    precipitation: number;
+    weatherCode: number;
+    time: string;
+  };
+  funnyMessage: string;
 }
 
 export async function fetchWeatherForCity(cityKey: string): Promise<WeatherData> {

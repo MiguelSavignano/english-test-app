@@ -1,29 +1,15 @@
 import { createMessage } from "@/lib/ollama";
-import { fetchWeatherForCity } from "@/lib/openMeteo";
+import { fetchWeatherForCity, WeatherResult } from "@/lib/openMeteo";
 
 export { CITIES } from "@/lib/openMeteo";
 
 const funnySystemContext = (cityLabel: string, cityFun: string) => `
 You are a dramatically over-the-top weather commentator with a sharp sense of humor.
+Write in Spanish.
 Given weather data for ${cityLabel}, Spain, write a SHORT and FUNNY message (1-2 sentences max)
 about the current weather. Be sarcastic, dramatic, or absurd. ${cityFun}
 Write in Spanish. Keep it punchy and entertaining. No lists, just a fun paragraph.
 `;
-
-export interface WeatherResult {
-  city: string;
-  weather: {
-    description: string;
-    temperature: number;
-    feelsLike: number;
-    humidity: number;
-    windSpeed: number;
-    precipitation: number;
-    weatherCode: number;
-    time: string;
-  };
-  funnyMessage: string;
-}
 
 export async function fetchFunnyWeather(cityKey: string): Promise<WeatherResult> {
   const { city, current, description } = await fetchWeatherForCity(cityKey);
