@@ -8,7 +8,7 @@ export async function getQuestions(): Promise<Question[]> {
 
 export async function getQuestionsFromOllama(count: number, level: string): Promise<Question[]> {
   const raw = await createMessage(
-    `Give me ${count} questions for an ${level} English level test.`
+    `Give me ${count} questions for an ${level} English level test only for Past simple tense.`
   );
 
   const match = raw.match(/\[[\s\S]*\]/);
