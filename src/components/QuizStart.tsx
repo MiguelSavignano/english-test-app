@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 interface Props {
   total: number;
   onStart: () => void;
@@ -51,10 +53,16 @@ export default function QuizStart({ total, onStart }: Props) {
 
       <button
         onClick={onStart}
-        className="w-full py-4 rounded-xl bg-blue-600 text-white font-semibold text-lg hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20"
+        className="w-full py-4 rounded-xl bg-blue-600 text-white font-semibold text-lg hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20 mb-4"
       >
         Start Test
       </button>
+      <Link
+        href="/"
+        className="block w-full py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 font-semibold text-base hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-center"
+      >
+        ← Back to Verb Practice
+      </Link>
     </div>
   );
 }
